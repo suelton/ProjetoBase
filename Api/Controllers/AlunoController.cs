@@ -21,14 +21,19 @@ namespace Api.Controllers
             this.service = service;
         }
 
+        /// <summary>
+        /// Incluir Aluno
+        /// </summary>
+        /// <param name="config">Configuração</param>
+        /// <param name="aluno">Aluno a ser incluido</param>
+        /// <returns>Aluno Persistido</returns>
         [HttpPost]
         [Route("incluir")]
         public async Task<IActionResult> Incluir([FromServices] IConfiguration config, [FromBody] Aluno aluno)
-        {
-            //using var conexao = new SqlConnection(config.GetConnectionString("ProjetoBase"));
+        {            
             Aluno resultado = null;
 
-            using (SqlConnection conexao = new SqlConnection(config.GetConnectionString("ProjetoBase")))
+            using (var conexao = new SqlConnection(config.GetConnectionString("ProjetoBase")))
             {
                 conexao.Open();
                 resultado = conexao.QueryFirstOrDefault<Aluno>("SELECT * FROM dbo.Aluno ");
