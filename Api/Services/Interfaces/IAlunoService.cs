@@ -8,6 +8,6 @@ namespace Api.Services.Interfaces
 {
     public interface IAlunoService
     {
-        public Task<Aluno> Incluir(Aluno aluno);
+        public Task<IEnumerable<Aluno>> ListAsync();
     }
 }

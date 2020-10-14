@@ -31,8 +31,8 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IAlunoService, AlunoService>();
-            services.AddSingleton<IAlunoRepository, AlunoRepository>();
+            services.AddScoped<IAlunoService, AlunoService>();
+            services.AddScoped<IAlunoRepository, AlunoRepository>();
 
             services.AddControllers();
 

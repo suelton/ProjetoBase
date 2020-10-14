@@ -18,9 +18,9 @@ namespace Api.Services
             this.repository = repository;
         }
 
-        public async Task<Aluno> Incluir(Aluno aluno)
+        public async Task<IEnumerable<Aluno>> ListAsync()
         {
-            throw new NotImplementedException();
+            return await repository.ListAsync();
         }
     }
 }
